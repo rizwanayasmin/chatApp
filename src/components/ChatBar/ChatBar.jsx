@@ -6,7 +6,9 @@ import Avatar from '@material-ui/core/Avatar';
 import SendIcon from '@material-ui/icons/Send';
 import IconButton from '@material-ui/core/IconButton';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
-import { compareAsc, format } from 'date-fns'
+import {  format } from 'date-fns'
+
+
 const useStyles = makeStyles((theme) => ({
     
     small: {
@@ -40,7 +42,7 @@ const ChatBar = (props) =>{
     const handleKeyDown = (event) => {
         if (!event.shiftKey&&event.key === 'Enter'&&message) {
             sendMessage();
-        //   console.log('do validate')
+       
         }
       }
     return(
@@ -49,13 +51,16 @@ const ChatBar = (props) =>{
                     {props.conversationList&&props.conversationList.length>0&&props.conversationList.map((obj,index)=>{
                         return(
                             <React.Fragment key={`conv_index_${index}`}>
-                                {obj.sender==props.senderid? <div className='sender_head'>
+                                {obj.sender===props.senderid? <div className='sender_head'>
                             <label className='sender_title'>{obj.msg}
                             <span>{format(new Date(obj.timestamp),'hh:mm a')}</span>
                             </label>
                            
                             <Avatar className={classes.small}>{props.s_name.charAt(0).toUpperCase()}</Avatar>
-                        </div>:  <div className='receiver_head'>
+                           
+                        </div>
+                        :
+                          <div className='receiver_head'>
                             <Avatar className={classes.small}>{props.r_name.charAt(0).toUpperCase()}</Avatar>
                             <label className='receiver_title'>{obj.msg}
                             <span>{format(new Date(obj.timestamp),'hh:mm a')}</span>
@@ -88,7 +93,6 @@ const ChatBar = (props) =>{
                             </div>
                         </Card>
                     </div>
-               
         </div>
 
     )

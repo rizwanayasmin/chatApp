@@ -1,19 +1,14 @@
 import React, { useState } from 'react'
 import './ContactList.css'
-// material ui
-import Card from '@material-ui/core/Card';
 import Divider from '@material-ui/core/Divider';
 import EditIcon from '@material-ui/icons/Edit';
 import Avatar from '@material-ui/core/Avatar';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import ListItemText from '@material-ui/core/ListItemText';
-import AddContact from '../Add Contact/AddContact'
-import Modal from '@material-ui/core/Modal';
 import ChatIcon from '@material-ui/icons/Chat';
-
+import Tooltip from '@material-ui/core/Tooltip';
 
 
 
@@ -48,15 +43,25 @@ const ContactList = (props)=>{
  
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
+        <Tooltip title="View Contact Details">
           <Avatar onClick={()=>props.viewcontact&&props.viewcontact()} >{props.details.name.charAt(0).toUpperCase()}</Avatar>
+        </Tooltip>
         </ListItemAvatar>
         <ListItemText
           primary={
               <div className='contactlist_label_head'>
                   <label onClick={()=>props.sendContact&&props.sendContact()} className='contactlist_label'>{name}</label>
-                  <EditIcon onClick={()=>props.editDetails&&props.editDetails()}/>
+                  <div>
+                  <Tooltip title="Edit Contact">
+                    <EditIcon onClick={()=>props.editDetails&&props.editDetails()}/>
+                    </Tooltip>
+                    </div>
                   { currentUser && 
-                  <ChatIcon onClick={()=>props.sendContact&&props.sendContact()}/>
+                  <div className='chat_icon'>
+                     <Tooltip title="Start Chat">
+                    <ChatIcon onClick={()=>props.sendContact&&props.sendContact()}/>
+                    </Tooltip>
+                    </div>
                   }
               </div>
           }
@@ -72,38 +77,7 @@ const ContactList = (props)=>{
 
       </ListItem>
       <Divider variant="inset" component="li" />
-     
-            {/* <Card>
-                <Divider />
-                {/* <div className='header'>
-                    <div>  <Avatar>A</Avatar></div> */}
-
-                    {/* <div className='contactlist'>
-                        <div className='contactlist_section_name'><label>Name</label>
-                        <EditIcon />
-                        </div>
-                        <div className='contactlist_section'><label>Email</label></div>
-                        <div className='contactlist_section'><label>Company Name</label></div>
-                    </div> */}
-                {/* </div> */}
-               
-                {/* <div className='contactlist'>
-                    <div className='contactlist_section_name'><label>Name</label>
-                    <EditIcon />
-                    </div>
-                    <div className='contactlist_section'><label>Email</label></div>
-                    <div className='contactlist_section'><label>Company Name</label></div>
-                </div> */}
-         
-         {/* <Modal
-                open={modal}
-                onClose={handleClose}
-                aria-labelledby="simple-modal-title"
-                aria-describedby="simple-modal-description"
-          >
-              <AddContact />
-          </Modal> */}
-        </div>
+    </div>
     )
 
 }

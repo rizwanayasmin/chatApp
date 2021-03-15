@@ -156,6 +156,12 @@ width: 100%;
 .mobile_contact_header label{
     display: none;
 }
+.addcontact_title_head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 @media only screen and (max-width:1023px){
     .mobile_contact_header{
         padding-bottom: 5px;
