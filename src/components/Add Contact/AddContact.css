@@ -1,0 +1,34 @@
+.addcontact_parent{
+    /* margin: 10%; */
+}
+.addcontact_section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2%;
+}
+.addcontact_title_head{
+    margin: 2%;
+}
+.addcontact_form{
+    width: 100%;
+}
+.addcontact_title{
+    font-size: 24px;
+    padding: 12px;
+}
+.addcontact_form_content{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px;
+}
+.addcontact_footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.addcontact_footer .MuiButton-root{
+    background-color: dodgerblue;
+    color: white;
+}

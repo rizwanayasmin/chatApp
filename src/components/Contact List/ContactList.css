@@ -1,0 +1,53 @@
+.header{
+    display: flex;
+}
+.contactlist{
+    text-align: start;
+    padding: 12px;
+}
+.contactlist:hover{
+    background-color: lightgray;
+    color: white;
+    font-weight: 600;
+}
+.contactlist_section{
+    margin-bottom: 6px;
+}
+.contactlist_section_name{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+.contactlist_section_name .MuiSvgIcon-root{
+    color: yellowgreen;
+}
+.contactlist_para{
+    margin: 0px;
+}
+.contactlist_label_head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.contactlist_label{
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.contactlist_parent .MuiListItem-gutters{
+padding-left: 5px;
+padding-right: 5px;
+background-color: white;
+}
+.contactlist_parent .MuiListItem-gutters:hover{
+   
+    background-color: #f5f5f5;
+    }
+.contactlist_parent .MuiDivider-inset{
+margin-left: 0px;
+}
+.contactlist_parent .selected_contact_active li{
+    background-color: #ebebeb;
+}

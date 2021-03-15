@@ -1,0 +1,133 @@
+.topbar_parent{
+   
+    background-color: whitesmoke;
+    /* margin: 10% 10% 2% 10%; */
+    /* padding: 20px; */
+    height: 100%;
+}
+.topbar_title{
+    display: flex;
+    align-items: flex-start;
+    font-size: 24px;
+}
+.header_topbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.auto_search{
+    width: 100%;
+}
+.auto_search .MuiInputBase-root{
+width: 100%;
+}
+.auto_search .ant-select-selector{
+    border-radius: 24px !important;
+    text-align: start !important;
+}
+.auto_search .MuiPaper-root{
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: none;
+    margin-bottom: 5px;
+}
+.topbar_grid_container_head{
+    height: 100%;
+}
+.add_content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.auto_search .MuiSvgIcon-root{
+   
+    color: #bfbfbf;
+}
+.auto_search .MuiInputBase-input{
+    padding-left: 5px;
+}
+.auto_search .MuiIconButton-root{
+padding: 10px;
+}
+.add_icon .MuiSvgIcon-root{
+    font-size: 35px;
+    color: dodgerblue;
+}
+.header_two{
+    display: flex;
+    align-items: center;
+
+    background-color: #d9d9d9;
+    padding: 8px;
+}
+.para{
+    margin: 0px;
+    font-size: 16px;
+    padding-left: 8px;
+    font-weight: 600;
+    padding-right: 8px;
+}
+.topbar_grid_container_head .MuiGrid-grid-xs-3{
+    background: #80808024;
+    padding: 8px;
+
+    position: relative;
+    height: 100%;
+}
+.topbar_grid_container_head .MuiGrid-container{
+    height: 100%;
+
+}
+.flex_top_header .topbar_header_two_section{
+    display: flex;
+    max-width: 50%;
+}
+.flex_top_header .topbar_header_two_section p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.topbar_list_header{
+    height: 84%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.topbar_grid_two_main{
+    height: 100%;
+}
+.flex_top_header{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+    
+}
+.header_two .MuiFormControl-root{
+width: 100%;
+}
+.dialog_form_title{
+    padding: 0px !important;
+}
+.dialog_form_content input{
+    padding: 6px;
+    outline: 0;
+    border: 1px solid;
+    width: 100%;
+}
+.dialog_form_content .MuiGrid-item{
+    padding: 0px;
+    padding-bottom: 12px;
+}
+.dialog_form_content label{
+    padding-bottom: 3px;
+    display: block;
+    width: 100%;
+   
+}
+.dialog_form_content .errors_div{
+    /* padding-bottom: 3px; */
+    color:red;
+   
+}
+.nonselecteduser{
+    
+}

@@ -1,0 +1,91 @@
+.chatbar_header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 56px);
+    padding: 5px;
+}
+.sender_head{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-bottom: 19px;
+    font-size: 18px;
+    
+}
+.sender_title{
+    font-size: 18px;
+    margin-right: 12px;
+    background-color: violet;
+    border-radius: 10px 0px 10px 10px;
+    padding: 6px;
+    color: white;
+    text-align: left;
+    min-width: 100px;
+    max-width: 80%;
+}
+.sender_title span{
+    display: block;
+    text-align: right;
+    width: 100%;
+    font-size: 12px;
+}
+.receiver_title span{
+    display: block;
+    text-align: right;
+    width: 100%;
+    font-size: 12px;
+}
+.receiver_head{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-bottom: 19px;
+    font-size: 18px;
+    min-width: 100px;
+}
+.receiver_title{
+    font-size: 18px;
+    border-radius: 0px 10px 10px 10px;
+    background-color: white;
+    margin-left: 12px;
+    padding: 6px;
+    text-align: left;
+    min-width: 100px;
+    max-width: 80%;
+}
+.chatbar_footer_section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 9px;
+}
+.footer_textarea{
+width: 90%;
+
+}
+.footer_textarea .MuiTextField-root{
+    width: 100%;
+}
+.chatbar_footer{
+    /* margin-top: 50px; */
+}
+.chatbar_footer .footer_textarea textarea{
+    width: 100%;
+    border: 0px;
+    /* padding: 6px 10px; */
+    height: 100%;
+    resize: none;
+}
+.chatbar_footer .footer_textarea textarea:focus{
+  border:0;
+  outline: 0;
+}
+.chatbar_footer_section .MuiIconButton-root:hover{
+    background-color: #1e90ff;
+}
+.chatbox_div{
+    max-height: 80vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
