@@ -12,8 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import ListItemText from '@material-ui/core/ListItemText';
 import AddContact from '../Add Contact/AddContact'
 import Modal from '@material-ui/core/Modal';
-import VisibilityIcon from '@material-ui/icons/Visibility';
-
+import ChatIcon from '@material-ui/icons/Chat';
 
 
 
@@ -32,7 +31,8 @@ const useStyles = makeStyles((theme) => ({
 const ContactList = (props)=>{
     const classes = useStyles();
     const {name,emailId,company,phonenumber}=props.details;
-    const {selectedUser}=props;
+    const {selectedUser, currentUser}=props;
+
     const [modal, setModal] = useState([])
 
     const handleOpen = () => {
@@ -55,8 +55,9 @@ const ContactList = (props)=>{
               <div className='contactlist_label_head'>
                   <label onClick={()=>props.sendContact&&props.sendContact()} className='contactlist_label'>{name}</label>
                   <EditIcon onClick={()=>props.editDetails&&props.editDetails()}/>
-                  {/* <VisibilityIcon onClick={()=>props.sendContact&&props.sendContact()}/> */}
-
+                  { currentUser && 
+                  <ChatIcon onClick={()=>props.sendContact&&props.sendContact()}/>
+                  }
               </div>
           }
           secondary={

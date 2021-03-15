@@ -38,6 +38,8 @@ import ViewUser from '../../components/Selected user/ViewUser'
 import Card from '@material-ui/core/Card';
 import CloseIcon from '@material-ui/icons/Close';
 import ChatIcon from '@material-ui/icons/Chat';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -206,7 +208,15 @@ const getconversation=(senderid,receiverid,instantcommunication)=>{
 
                   {/* <div className='one'>
                     <div className='two'> */}
+                    <div className="mobile_contact_header">
                   <h5 className='topbar_title'>Chat Application</h5>
+                  {
+                    currentUser&&
+                    <label className="currentuser_label">
+                        <Avatar onClick={()=>handleOpenSelectedUser(currentUser)}>{currentUser.name.charAt(0).toUpperCase()}</Avatar>
+                      {currentUser.name}</label> 
+                  }
+                  </div>
                   <div className='add_content'>
                         <div className='auto_search'>
                             <Paper component="form" className={classes.root}>
@@ -232,7 +242,7 @@ const getconversation=(senderid,receiverid,instantcommunication)=>{
                             return(
                                 <React.Fragment>
                                 {iscontactavailable?null:
-                                <ContactList viewcontact={()=>handleOpenSelectedUser(data)} selectedUser={selectedUser} editDetails={()=>editcontactDetails(data)} sendContact={()=>sendContactDetails(data)} key={`contact_${index}`} details={data}/>}
+                                <ContactList viewcontact={()=>handleOpenSelectedUser(data)} currentUser={currentUser} selectedUser={selectedUser} editDetails={()=>editcontactDetails(data)} sendContact={()=>sendContactDetails(data)} key={`contact_${index}`} details={data}/>}
                                 </React.Fragment>
                                 )
                         }
@@ -259,6 +269,7 @@ const getconversation=(senderid,receiverid,instantcommunication)=>{
             <div className='topbar_header_two_section'>
                 {selectedUser&&
                     <React.Fragment>
+                       <ArrowBackIcon onClick={()=>{setShowContact(true);setShowChat(false)}} className="mobile_back"/>
                           <Avatar >{selectedUser.name.charAt(0).toUpperCase()}</Avatar>
             <p className='para'>{selectedUser.name}</p>
                     </React.Fragment>

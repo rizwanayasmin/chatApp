@@ -81,11 +81,16 @@ padding: 10px;
 .flex_top_header .topbar_header_two_section{
     display: flex;
     max-width: 50%;
+    align-items: center;
 }
 .flex_top_header .topbar_header_two_section p{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.topbar_header_two_section .mobile_back {
+    display:none;
+margin-right: 3px !important;
 }
 .topbar_list_header{
     height: 84%;
@@ -144,7 +149,31 @@ width: 100%;
     font-size: 70px;
     color: dodgerblue;
 }
+
+.currentuser_label{
+    display: none;
+}
+.mobile_contact_header label{
+    display: none;
+}
 @media only screen and (max-width:1023px){
+    .mobile_contact_header{
+        padding-bottom: 5px;
+    }
+    .mobile_contact_header label{
+        display: inline-block;
+    }
+    .mobile_contact_header{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+    .currentuser_label{
+        display: inline-block;
+    }
+    .topbar_header_two_section .mobile_back{
+        display: inline-block;
+    }
     .topbar_parent.showchat .first_div{
         display:none;
     }

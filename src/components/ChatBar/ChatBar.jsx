@@ -53,6 +53,7 @@ const ChatBar = (props) =>{
                             <label className='sender_title'>{obj.msg}
                             <span>{format(new Date(obj.timestamp),'hh:mm a')}</span>
                             </label>
+                           
                             <Avatar className={classes.small}>{props.s_name.charAt(0).toUpperCase()}</Avatar>
                         </div>:  <div className='receiver_head'>
                             <Avatar className={classes.small}>{props.r_name.charAt(0).toUpperCase()}</Avatar>
