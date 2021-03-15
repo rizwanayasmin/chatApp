@@ -12,6 +12,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import ListItemText from '@material-ui/core/ListItemText';
 import AddContact from '../Add Contact/AddContact'
 import Modal from '@material-ui/core/Modal';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+
 
 
 
@@ -45,14 +47,16 @@ const ContactList = (props)=>{
 
  
       <ListItem alignItems="flex-start">
-        <ListItemAvatar onClick={()=>props.sendContact&&props.sendContact()}>
-          <Avatar  >{props.details.name.charAt(0).toUpperCase()}</Avatar>
+        <ListItemAvatar>
+          <Avatar onClick={()=>props.viewcontact&&props.viewcontact()} >{props.details.name.charAt(0).toUpperCase()}</Avatar>
         </ListItemAvatar>
         <ListItemText
           primary={
               <div className='contactlist_label_head'>
                   <label onClick={()=>props.sendContact&&props.sendContact()} className='contactlist_label'>{name}</label>
                   <EditIcon onClick={()=>props.editDetails&&props.editDetails()}/>
+                  {/* <VisibilityIcon onClick={()=>props.sendContact&&props.sendContact()}/> */}
+
               </div>
           }
           secondary={

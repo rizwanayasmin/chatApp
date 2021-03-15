@@ -94,6 +94,7 @@ padding: 10px;
 }
 .topbar_grid_two_main{
     height: 100%;
+    width: 100%;
 }
 .flex_top_header{
    display: flex;
@@ -124,10 +125,54 @@ width: 100%;
    
 }
 .dialog_form_content .errors_div{
-    /* padding-bottom: 3px; */
     color:red;
    
 }
 .nonselecteduser{
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100%);
 }
+.select_user_and_chat{
+    font-size: 24px;
+    color: cornflowerblue;
+    margin-top: 56px;
+}
+
+.nonselecteduser .MuiSvgIcon-root{
+    font-size: 70px;
+    color: dodgerblue;
+}
+@media only screen and (max-width:1023px){
+    .topbar_parent.showchat .first_div{
+        display:none;
+    }
+    .topbar_parent.showchat .second_div{
+        display:flex;
+        flex:0 0 100%;
+        max-width: 100%;
+    }
+    .topbar_parent.hidechat .first_div{
+        flex: 0 0 100%;
+    width: 100%;
+    display: block;
+    max-width: 100%;
+    }
+    .topbar_parent.hidechat .second_div{
+        display:none;
+    }
+}
+.add_circle_style .MuiSvgIcon-root{
+    font-size: 30px;
+    color: dodgerblue;
+}
+/* media query */
+@media only screen and (max-width: 999px) {
+    .three {
+     display: none ;
+    }
+    .two{
+        width: 100% ;
+    }
+  }

@@ -35,6 +35,10 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 import { DialogContent } from '@material-ui/core'
 import ViewUser from '../../components/Selected user/ViewUser'
+import Card from '@material-ui/core/Card';
+import CloseIcon from '@material-ui/icons/Close';
+import ChatIcon from '@material-ui/icons/Chat';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -84,6 +88,9 @@ const Topbar =()=>{
     const [communication, setCommunication] = useState([]);
     const [currentconverstation,setcurrentconversation] = useState(null);
     const [openSelectedUser, setOpenSelectedUser] = useState(false)
+    const [viewcontactdetails,setviewcontactdetails] = useState(null);
+    const [showContact, setShowContact] = useState(true)
+    const [showChat, setShowChat] = useState(false)
 
 
     const handleChange = (event) => {
@@ -103,8 +110,9 @@ const Topbar =()=>{
         seteditdetails(null);
       };  
 // 
-const handleOpenSelectedUser = () => {
+const handleOpenSelectedUser = (data) => {
   setOpenSelectedUser(true);
+  setviewcontactdetails(data?data:selectedUser)
   };
 
 const handleCloseSelectedUser = () => {
@@ -146,10 +154,12 @@ const getconversation=(senderid,receiverid,instantcommunication)=>{
       }else{
         getconversation(currentUser?currentUser.phonenumber:null,data.phonenumber);
         setSelectedUser(data);
+        setShowContact(false);
+        setShowChat(true)
       }
   }
   const receiveFormDatas=(details)=>{
-    const mycontactdetails=[...dataList];
+    const mycontactdetails=[...userDetails];
     var editobj={
       name:details.name,
       phonenumber:details.phonenumber,
@@ -189,18 +199,13 @@ const getconversation=(senderid,receiverid,instantcommunication)=>{
   }
   console.log("currentconverstation",currentconverstation);
     return(
-        <div className='topbar_parent'>
-            
-            <div className='header_topbar'>  
-            
-
-          
-            
-          </div>
-          {/* <Divider /> */}
+        <div className={`topbar_parent ${showChat?'showchat':'hidechat'}`}>
           <div className='topbar_grid_container_head'>
               <Grid container>
-                  <Grid item xs={3} lg={3}>
+                  <Grid className="first_div" item xs={3} lg={3}>
+
+                  {/* <div className='one'>
+                    <div className='two'> */}
                   <h5 className='topbar_title'>Chat Application</h5>
                   <div className='add_content'>
                         <div className='auto_search'>
@@ -214,9 +219,9 @@ const getconversation=(senderid,receiverid,instantcommunication)=>{
                                 <SearchIcon />
                                 </IconButton> 
                                 <Divider className={classes.divider} orientation="vertical" />
-      <IconButton color="primary" className={classes.iconButton} aria-label="directions">
-        <AddCircleIcon onClick={handleOpen}/>
-      </IconButton>  
+                  <div className="add_circle_style"><IconButton color="primary" className={classes.iconButton} aria-label="directions">
+                    <AddCircleIcon onClick={handleOpen}/>
+                  </IconButton></div>  
                             </Paper>
                     </div>
                     </div>
@@ -227,7 +232,7 @@ const getconversation=(senderid,receiverid,instantcommunication)=>{
                             return(
                                 <React.Fragment>
                                 {iscontactavailable?null:
-                                <ContactList selectedUser={selectedUser} editDetails={()=>editcontactDetails(data)} sendContact={()=>sendContactDetails(data)} key={`contact_${index}`} details={data}/>}
+                                <ContactList viewcontact={()=>handleOpenSelectedUser(data)} selectedUser={selectedUser} editDetails={()=>editcontactDetails(data)} sendContact={()=>sendContactDetails(data)} key={`contact_${index}`} details={data}/>}
                                 </React.Fragment>
                                 )
                         }
@@ -240,9 +245,10 @@ const getconversation=(senderid,receiverid,instantcommunication)=>{
                         <ContactList /> */}
                         </List> 
                         </div>
-                       
+                    {/* </div> 
+                    <div className='three' style={{backgroundImage:`url(${chatLogo})`,width:'100%'}}> */}
                   </Grid>
-                  <Grid item xs={9} lg={9} style={{backgroundImage:`url(${chatLogo})`,width:'100%'}}>
+                  <Grid className="second_div" item xs={9} lg={9} style={{backgroundImage:`url(${chatLogo})`,width:'100%'}}>
                       {(selectedUser||currentUser) ? 
                       <div className='topbar_grid_two_main'>
                         <div className='header_two'>
@@ -253,7 +259,7 @@ const getconversation=(senderid,receiverid,instantcommunication)=>{
             <div className='topbar_header_two_section'>
                 {selectedUser&&
                     <React.Fragment>
-                          <Avatar onClick={handleOpenSelectedUser}>{selectedUser.name.charAt(0).toUpperCase()}</Avatar>
+                          <Avatar >{selectedUser.name.charAt(0).toUpperCase()}</Avatar>
             <p className='para'>{selectedUser.name}</p>
                     </React.Fragment>
                 }
@@ -291,11 +297,17 @@ const getconversation=(senderid,receiverid,instantcommunication)=>{
                       <ChatBar s_name={currentUser&&currentUser.name} r_name={selectedUser&&selectedUser.name} senderid={currentUser&&currentUser.phonenumber} conversationList={currentconverstation} sendMessage={(msg)=>sendMessage(msg)} />}
                       </div>
                       :   <div className="nonselecteduser">
-                          <p>Please Select the user and start the chat</p>
+                        <ChatIcon />
+                        {/* <Card>
+                        <p className="select_user_and_chat">Please Select the user and start the chat</p>
+                        </Card> */}
+                         
                           </div>}
                   </Grid>
                
               </Grid>
+              {/* </div>
+              </div> */}
           </div>
         <div className='dialog'>
           <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}
@@ -313,14 +325,21 @@ const getconversation=(senderid,receiverid,instantcommunication)=>{
           </DialogContent>
           </Dialog>
           </div>
+
           <Dialog onClose={handleCloseSelectedUser} aria-labelledby="simple-dialog-title" open={openSelectedUser}
           >
-            <DialogTitle>View Selected User Details</DialogTitle>
+            <DialogTitle>
+              <div style={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+                  View Selected User Details
+                  <CloseIcon onClick={handleCloseSelectedUser}/>
+              </div>
+            </DialogTitle>
             <Divider />
             <DialogContent>
            
-
-                    <ViewUser view={selectedUser}/>
+                    {viewcontactdetails&&
+                    <ViewUser view={viewcontactdetails}/>
+                    } 
             </DialogContent>
           </Dialog>
         </div>

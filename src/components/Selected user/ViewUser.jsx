@@ -1,26 +1,47 @@
 import React from 'react';
 import './ViewUser.css'
+import Grid from '@material-ui/core/Grid';
+
 
 
 const ViewUser=(props)=>{
     return(
         <div >
-            <div className='viewuser_parent'>
-                <label>Name</label>
-                <p>{props.view.name}</p>
+            <Grid container>
+                <Grid item xs={6} lg={6}>
+                        <div>
+                        <div className='view_contact_list_section_head'><label className='view_contact_list_section'>Name</label></div>
+                        <div className='view_contact_list_section_head'><label className='view_contact_list_section'>Phone Number</label></div>
+                        <div className='view_contact_list_section_head'><label className='view_contact_list_section'>Email Id</label></div>
+                        <div className='view_contact_list_section_head'><label className='view_contact_list_section'>Company</label></div>
+
+
+
+                        </div>
+
+                </Grid>
+                <Grid item xs={6} lg={6}>
+                    <div>
+                    <div className='view_contact_list_section_head'><label>{props.view.name}</label></div>
+                    <div className='view_contact_list_section_head'><label>{props.view.phonenumber}</label></div>
+                    <div className='view_contact_list_section_head'><label>{props.view.emailId}</label></div>
+                    <div className='view_contact_list_section_head'><label>{props.view.company}</label></div>
+
+
+
+                    </div>
+                </Grid>
+               
+            </Grid>
+            {/* <div className='viewuser_parent'>
+              
             </div>
             <div className='viewuser_parent'>
-                <label>Phone Number</label>
-                <p>{props.view.phonenumber}</p>
             </div>
             <div className='viewuser_parent'>
-                <label>Email Id</label>
-                <p>{props.view.emailId}</p>
             </div>
             <div className='viewuser_parent'>
-                <label>Company</label>
-                <p>{props.view.company}</p>
-            </div>
+            </div> */}
         </div>
     )
 

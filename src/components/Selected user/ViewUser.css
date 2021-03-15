@@ -1,5 +1,12 @@
 .viewuser_parent{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+}
+.view_contact_list_section{
+    font-size: 14px;
+    font-weight: 600;
+}
+.view_contact_list_section_head{
+    padding-bottom: 12px;
 }
