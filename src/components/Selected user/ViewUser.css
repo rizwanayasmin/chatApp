@@ -10,3 +10,7 @@
 .view_contact_list_section_head{
     padding-bottom: 12px;
 }
+.view_contactlist{
+    width: 300px;
+    padding: 2px;
+}

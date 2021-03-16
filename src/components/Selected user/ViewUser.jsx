@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 
 const ViewUser=(props)=>{
     return(
-        <div >
+        <div className="view_contactlist">
             <Grid container>
                 <Grid item xs={6} lg={6}>
                         <div>

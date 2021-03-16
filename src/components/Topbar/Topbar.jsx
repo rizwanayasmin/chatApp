@@ -303,7 +303,7 @@ setUserDetails(getfilterdata);
             </DialogContent>
           </Dialog>
           </div>
-          <Dialog onClose={handleCloseSelectedUser} aria-labelledby="simple-dialog-title" open={openSelectedUser} maxWidth="lg" 
+          <Dialog onClose={handleCloseSelectedUser} aria-labelledby="simple-dialog-title" open={openSelectedUser} maxWidth="lg" className="view_model"
           >
             <DialogTitle>
               <div style={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
